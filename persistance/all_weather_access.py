@@ -56,11 +56,6 @@ class AllWeatherDAO:
         self.engine = create_engine(CONNECTION_STRING)
         self.session = Session(self.engine)
 
-        self.weather_data = self.session.execute(select(Weather, Astro).join(Astro.weather)).all()
-        self.weather_data = list(map(lambda w: dict(list(w[0].__dict__.items()) + list(w[1].__dict__.items())), self.weather_data))
-        for w in self.weather_data:
-            w.pop('_sa_instance_state')
-
     def res_to_string(self, res):
         s_res = []
         for r in res:
