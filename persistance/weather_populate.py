@@ -36,7 +36,15 @@ class Weather(Base):
         if moonset == 'No moonset':
             return None
         else:
-            return moonset
+            spt = datetime.datetime.strptime(moonset, "%I:%M %p")
+            sft = datetime.datetime.strftime(spt, "%H:%M")
+            return sft
+        
+    @validates('sunrise', 'sunset', 'moonrise')
+    def validate_time(self, key, time):
+        spt = datetime.datetime.strptime(time, "%I:%M %p")
+        sft = datetime.datetime.strftime(spt, "%H:%M")
+        return sft
 
     moon_phase: Mapped[str]
 
