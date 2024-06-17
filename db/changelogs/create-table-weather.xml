@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd ">
+    
+    <changeSet id="1" author="weathermanager">
+        <createTable tableName="weather">
+            <column name="weather_id" type="bigint">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="country" type="varchar(40)">
+                <constraints nullable="false" />
+            </column>
+            <column name="wind_degree" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="wind_kph" type="numeric(3,1)">
+                <constraints nullable="false" />
+            </column>
+            <column name="wind_direction" type="varchar(3)">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_updated" type="datetime">
+                <constraints nullable="false" />
+            </column>
+            <column name="sunrise" type="time">
+                <constraints nullable="false" />
+            </column>
+            <column name="sunset" type="time">
+                <constraints nullable="false" />
+            </column>
+            <column name="moonrise" type="time">
+                <constraints nullable="false" />
+            </column>
+            <column name="moonset" type="time" />
+            <column name="moon_phase" type="char(14)">
+                <constraints nullable="false" />
+            </column>
+            <column name="moon_illumination" type="int">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

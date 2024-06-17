@@ -1,0 +1,1 @@
+CONNECTION_STRING = 'postgresql+psycopg2://postgres:123@localhost:5432/db_lab3'
